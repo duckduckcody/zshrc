@@ -1,19 +1,13 @@
-export ZSH="/Users/cody/.oh-my-zsh"
-
-ZSH_THEME="spaceship"
+export ZSH="$HOME/.oh-my-zsh"
 
 ENABLE_CORRECTION="true"
 
-plugins=(git)
-
 source $ZSH/oh-my-zsh.sh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
+ZSH_THEME="spaceship"
 SPACESHIP_GIT_PREFIX=""
 SPACESHIP_PACKAGE_SHOW=(false)
+plugins=(git)
 
 function bob {
   node ~/code/scripts/bob/bob.js $1 $2

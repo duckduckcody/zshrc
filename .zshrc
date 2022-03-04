@@ -1,4 +1,4 @@
-export ZSH="$HOME/.oh-my-zsh"
+export PATH_TO_ZSH="$HOME/.oh-my-zsh"
 
 plugins=(git)
 
@@ -6,11 +6,11 @@ ZSH_THEME="spaceship"
 SPACESHIP_GIT_PREFIX=""
 SPACESHIP_PACKAGE_SHOW=(false)
 
-source $ZSH/oh-my-zsh.sh
+source $PATH_TO_ZSH/oh-my-zsh.sh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH_TO_NVM="$HOME/.nvm"
+[ -s "$PATH_TO_NVM/nvm.sh" ] && \. "$PATH_TO_NVM/nvm.sh" # This loads nvm
+[ -s "$PATH_TO_NVM/bash_completion" ] && \. "$PATH_TO_NVM/bash_completion"  # This loads nvm bash_completion
 
 function bob {
   node ~/code/scripts/bob/bob.js $1 $2

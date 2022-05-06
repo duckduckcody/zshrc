@@ -24,8 +24,11 @@ function gdev {
   git checkout -b origin/develop
 }
 
-export PATH_TO_ZSHRC="$HOME/Code/scripts/zshrc"
+export PATH_TO_ZSHRC="$HOME/code/scripts/zshrc"
 
 NPM_TOKEN=`cat ${PATH_TO_ZSHRC}/npm-token.txt`
 [ -z "$NPM_TOKEN" ] && echo "npm-token.txt not set"
 export NPM_TOKEN
+
+# set DISPLAY variable to the IP automatically assigned to WSL2
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0

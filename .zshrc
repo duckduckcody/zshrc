@@ -8,27 +8,27 @@ SPACESHIP_PACKAGE_SHOW=(false)
 
 source $PATH_TO_ZSH/oh-my-zsh.sh
 
-export PATH_TO_NVM="$HOME/.nvm"
-[ -s "$PATH_TO_NVM/nvm.sh" ] && \. "$PATH_TO_NVM/nvm.sh" # This loads nvm
-[ -s "$PATH_TO_NVM/bash_completion" ] && \. "$PATH_TO_NVM/bash_completion"  # This loads nvm bash_completion
-
 function bob {
-  node ~/code/scripts/bob/bob.js $1 $2
+  node ~/bob/bob.js $1 $2
 }
 
 function str {
   yarn && yarn storybook
 }
 
-function gdev {
-  git checkout -b origin/develop
-}
-
 export PATH_TO_ZSHRC="$HOME/code/scripts/zshrc"
-
-NPM_TOKEN=`cat ${PATH_TO_ZSHRC}/npm-token.txt`
-[ -z "$NPM_TOKEN" ] && echo "npm-token.txt not set"
-export NPM_TOKEN
 
 # set DISPLAY variable to the IP automatically assigned to WSL2
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+ 
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
+
+# pnpm
+export PNPM_HOME="/home/cody/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+alias pp=pnpm
+# pnpm end
+
+alias python=python3
